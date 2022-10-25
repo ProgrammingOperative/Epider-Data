@@ -4,7 +4,7 @@ from fastai.vision.all import *
 
 
 path = Path()
-learn_inf = load_learner('../../models/version1.pkl')
+learn_inf = load_learner(path/"models/version1.pkl")
 
 
 def home(request):
