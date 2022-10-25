@@ -15,9 +15,10 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path
+from skin_classifier import views
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('', admin.site.urls),
-    path('admin/', admin.site.urls),
+    path('classify', views.classify, name="classify"),
+    path('', views.home, name="home")
 ]
