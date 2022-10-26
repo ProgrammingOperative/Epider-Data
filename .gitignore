@@ -4,6 +4,7 @@ __pycache__/
 *$py.class
 
 data/
+dermo_application/MEDIA/
 
 # C extensions
 *.so
