@@ -8,7 +8,7 @@ learn_inf = load_learner(path/"models/version1.pkl")
 
 
 def home(request):
-    context = {'a': "Hellow Javis"}
+    context = {'a': "GET READY DOCTOR"}
     return render(request, 'skin_classifier/home.html', context)
 
 
@@ -20,6 +20,7 @@ def classify(request):
     print(fileobj)
     pt = f"{path.cwd()}/MEDIA/{fileobj}"
     print(filepathname)
+    print(pt)
     img = PILImage.create(pt)
     pred, pred_idx, probs = learn_inf.predict(img)
 
