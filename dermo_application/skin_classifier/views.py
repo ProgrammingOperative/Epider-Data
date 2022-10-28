@@ -1,6 +1,10 @@
 from django.shortcuts import render
 from django.core.files.storage import FileSystemStorage
 from fastai.vision.all import *
+import pathlib
+temp = pathlib.PosixPath
+pathlib.PosixPath = pathlib.WindowsPath
+
 
 
 path = Path()
@@ -8,7 +12,7 @@ learn_inf = load_learner(path/"models/version1.pkl")
 
 
 def home(request):
-    context = {'a': "GET READY DOCTOR"}
+    context = {'a': "Hellow Javis"}
     return render(request, 'skin_classifier/home.html', context)
 
 
@@ -20,7 +24,6 @@ def classify(request):
     print(fileobj)
     pt = f"{path.cwd()}/MEDIA/{fileobj}"
     print(filepathname)
-    print(pt)
     img = PILImage.create(pt)
     pred, pred_idx, probs = learn_inf.predict(img)
 
