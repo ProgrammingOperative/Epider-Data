@@ -1,8 +1,38 @@
 {% extends 'skin_classifier/home.html'%}
 
 {% block content %}
- <h3> {{filename}} </h3>
-<img src="{{filepathname}}" alt="imagename">
-<h3>Prediction: {{pred}}</h3>
-<h3>Probability: {{probs}}</h3>
+{% if messages%}
+{% for message in messages %}
+<div class="alert alert-{{ message.tags }}"> 
+  {{message}}
+</div>
+{% endfor%}
+{% endif %}
+<article class="media content-section">
+    <div class="media-body">
+      <div class="article-metadata">
+       {{filename}}
+      </div>
+      <!-- <h2><a class="article-title" href="#">{{ post.title }}</a></h2> -->
+      <p class="article-content">
+        <img src="{{filepathname}}" alt="imagename">
+      </p>
+    </div>
+  </article>
+  <!-- <form action="{% url "pdf_report" %">
+  <div class="form-group">
+    <button class="btn btn-info btn-block" type="submit">DOWNLOAD REPORT</button>
+  </div>
+  </form> -->
+{% endblock %}
+
+{% block statistics%}
+  <ul class="list-group">
+    <li class="list-group-item list-group-item-light">Prediction: <b>{{pred}}</b></li>
+    <li class="list-group-item list-group-item-light">Probability: <b>{{probs}}</b></li>
+    <li class="list-group-item list-group-item-light">Urgency: <b>{{stat}}</b></b></li>
+  </br>
+  </br>
+    <!-- <li class="list-group-item list-group-item-light">etc</li> -->
+  </ul>
 {% endblock %}
